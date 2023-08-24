@@ -9,7 +9,7 @@ function setup() {
   video.size(width, height);
   video.hide();
   slider = createSlider(2, 150, m); // Deslizador para controlar la distancia entre círculos
-  slider.position(10, 10);
+  slider.parent("left");
   fill(0);
   noStroke();
 }
@@ -31,7 +31,7 @@ function draw() {
       let idx = (vidY * video.width + vidX) * 4;
 
       let brightness = (video.pixels[idx] + video.pixels[idx + 1] + video.pixels[idx + 2]) / 3;
-      let circleSize = map(brightness, 0, 255, m * 2, 0); // Invierte el mapeo
+      let circleSize = map(brightness, 0, 255, m * 2.3, 0); // Invierte el mapeo
       ellipse(x + xOffset, y, circleSize);
     }
   }
