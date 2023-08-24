@@ -1,9 +1,56 @@
+/* Importa la fuente 'Outfit' de Google Fonts en dos pesos diferentes (200 y 700) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;700&display=swap');
+
+/* Define un box model consistente y aplica la fuente 'Outfit' a todos los elementos y al elemento HTML */
+*, html{
+  box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el tamaño total del elemento */
+  font-family:'Outfit', sans-serif; /* Establece la fuente 'Outfit' como fuente principal, con una fuente sans-serif como alternativa */
+}
+
+/* Elimina los márgenes y el padding predeterminados del navegador para los elementos html y body */
 html, body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #FFD4D4, #ED5252);
 }
+
+/* Elimina los márgenes predeterminados del navegador para los elementos canvas */
 canvas {
-  display: block;
-  margin: 20px auto;
+  margin: 0;
+}
+
+/* Define una cuadrícula de dos columnas iguales para el elemento <main> */
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide el espacio disponible en dos columnas de igual tamaño */
+}
+
+/* Establece propiedades para el elemento con id="margin-overlay" */
+#margin-overlay{
+  float: right; /* Flota el elemento a la derecha */
+  width: 100%; /* Establece el ancho en el 100% del contenedor */
+  height: 100%; /* Establece la altura en el 100% del contenedor */
+  shape-outside: polygon(50% 0, 100% 0, 100% 100%); /* Define una forma externa para controlar el flujo del contenido alrededor del elemento */
+}
+
+/* Establece propiedades para el elemento con id="left" */
+#left{
+  padding: 3em; /* Agrega un padding de 3em alrededor del contenido */
+  /* Define un degradado lineal vertical para el fondo, desde un gris claro en la parte superior hasta un gris más oscuro en la parte inferior */
+  background: linear-gradient(180deg, rgba(215,215,215,1) 0%, rgba(128,128,128,1) 100%);
+}
+
+/* Establece el tamaño de fuente para los elementos <h1> */
+h1{
+  font-size: 3em; /* Establece el tamaño de fuente en 3em */
+}
+
+/* Establece el tamaño de fuente para los elementos <p> dentro del elemento con id="left" */
+#left p{
+  font-size: 1.5em; /* Establece el tamaño de fuente en 1.5em */
+}
+
+/* Establece propiedades para el elemento con id="right" */
+#right{
+  /* Define un degradado lineal horizontal para el fondo, desde un gris claro en la izquierda hasta un gris más oscuro en la derecha */
+  background: linear-gradient(0deg, rgba(215,215,215,1) 0%, rgba(128,128,128,1) 100%);
 }

@@ -1,14 +1,38 @@
-let colors;
-let currentColorIndex = 0;
+let video;
+let slider;
+let m = 10;
 
-function setup(){
-  let cnv = createCanvas(windowWidth, windowHeight);
-  colors = [color(138, 191, 225, 40), color(90, 130, 194, 40), color(75, 111, 175, 40), color(66, 99, 155, 40)];
+function setup() {
+  let cnv = createCanvas(document.getElementById("right").offsetWidth, windowHeight);
+  cnv.parent("right");
+  video = createCapture(VIDEO);
+  video.size(width, height);
+  video.hide();
+  slider = createSlider(2, 150, m); // Deslizador para controlar la distancia entre círculos
+  slider.position(10, 10);
+  fill(0);
+  noStroke();
 }
 
-function draw(){
-  stroke(colors[currentColorIndex]);
-  line(width/2, height/2, mouseX, mouseY);
-  currentColorIndex = (currentColorIndex + 1) % colors.length;
-}
+function draw() {
+  clear(); // Limpia el lienzo en cada fotograma
+  video.loadPixels();
+  m = slider.value(); // Actualiza la distancia entre círculos según el deslizador
 
+  for (let y = m; y < height - m; y += m * sqrt(3)) {
+    for (let x = m; x < width - m; x += m * 3) {
+      let xOffset = 0;
+      if ((floor(y / (m * sqrt(3))) % 2) == 0) {
+        xOffset = m * 1.5;
+      }
+
+      let vidX = floor(map(x + xOffset, m, width - m, 0, video.width));
+      let vidY = floor(map(y, m, height - m, 0, video.height));
+      let idx = (vidY * video.width + vidX) * 4;
+
+      let brightness = (video.pixels[idx] + video.pixels[idx + 1] + video.pixels[idx + 2]) / 3;
+      let circleSize = map(brightness, 0, 255, m * 2, 0); // Invierte el mapeo
+      ellipse(x + xOffset, y, circleSize);
+    }
+  }
+}
