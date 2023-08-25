@@ -3,6 +3,8 @@ let slider;
 let m = 10;
 
 function setup() {
+  let halfWidth = document.getElementById("right").offsetWidth;
+  
   let cnv = createCanvas(document.getElementById("right").offsetWidth, windowHeight);
   cnv.parent("right");
   video = createCapture(VIDEO);
@@ -19,8 +21,8 @@ function draw() {
   video.loadPixels();
   m = slider.value(); // Actualiza la distancia entre círculos según el deslizador
 
-  for (let y = m; y < height - m; y += m * sqrt(3)) {
-    for (let x = m; x < width - m; x += m * 3) {
+  for (let y = m*2; y < height - m*2; y += m * sqrt(3)) {
+    for (let x = m*2; x < width - m*2; x += m * 3) {
       let xOffset = 0;
       if ((floor(y / (m * sqrt(3))) % 2) == 0) {
         xOffset = m * 1.5;
@@ -31,8 +33,14 @@ function draw() {
       let idx = (vidY * video.width + vidX) * 4;
 
       let brightness = (video.pixels[idx] + video.pixels[idx + 1] + video.pixels[idx + 2]) / 3;
-      let circleSize = map(brightness, 0, 255, m * 2.3, 0); // Invierte el mapeo
+      let circleSize = map(brightness, 0, 255, m * 3, 0); // Invierte el mapeo
       ellipse(x + xOffset, y, circleSize);
     }
   }
 }
+
+function windowResized(){
+  clear();
+  resizeCanvas(document.getElementById("right").offsetWidth, windowHeight);
+}
+
