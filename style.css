@@ -32,22 +32,18 @@ main{
   grid-template-columns: 1fr 1fr; /* Divide el espacio disponible en dos columnas de igual tamaño */
 }
 
-/* Establece propiedades para el elemento con id="margin-overlay" */
-#margin-overlay{
-  display: none;
-  float: right; /* Flota el elemento a la derecha */
-  width: 100%; /* Establece el ancho en el 100% del contenedor */
-  height: 100%; /* Establece la altura en el 100% del contenedor */
-  shape-outside: polygon(50% 0, 100% 0, 100% 100%); /* Define una forma externa para controlar el flujo del contenido alrededor del elemento */
-}
-
 /* Establece propiedades para el elemento con id="left" */
 #left{
-  padding: 3.5em; /* Agrega un padding de 3em alrededor del contenido */
+  padding: 5vw; /* Agrega un padding de 3em alrededor del contenido */
   /* Define un degradado lineal vertical para el fondo, desde un gris claro en la parte superior hasta un gris más oscuro en la parte inferior */
   background: linear-gradient(180deg, rgba(215,215,215,1) 0%, rgba(128,128,128,1) 100%);
 }
 
+
+
+.content{
+  margin:0 0 2em 0;
+}
 /* Establece el tamaño de fuente para los elementos <h1> */
 h1{
   font-size: 3em; /* Establece el tamaño de fuente en 3em */
@@ -55,7 +51,10 @@ h1{
 
 /* Establece el tamaño de fuente para los elementos <p> dentro del elemento con id="left" */
 #left p{
-  font-size: 1.9em; /* Establece el tamaño de fuente en 1.5em */
+  font-size: 1.44vw; /* Establece el tamaño de fuente en 1.5em */
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.32em;
 }
 
 /* Establece propiedades para el elemento con id="right" */
@@ -64,6 +63,20 @@ h1{
   background: linear-gradient(0deg, rgba(215,215,215,1) 0%, rgba(128,128,128,1) 100%);
 }
 
+@media only screen and (max-width: 399px) {
+  main{
+    grid-template-columns: 1fr; /* sólo una columna */
+  }
+
+  #left p{
+    font-size: 1em; 
+    line-height: 1.4em;
+  }
+
+  #right{
+    height: 100vw;
+  }
+}
 
 /* 
    todos los estilos a continuación se hicieron con esta herramienta:
