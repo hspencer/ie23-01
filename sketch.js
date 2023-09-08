@@ -9,7 +9,7 @@ function setup() {
   video.size(width, height);
   video.hide();
   slider = createSlider(2, 150, m); // Deslizador para controlar la distancia entre círculos
-  slider.position(10, 10);
+  slider.parent("left");
   fill(0);
   noStroke();
 }
