@@ -18,8 +18,8 @@ function setup() {
 function draw() {
   spread = spreadSlider.value();
   background(220);
-  branch(width/3, height, -HALF_PI, height/3);
-  branch(width* 2/3, height, -HALF_PI, height/3);
+  branch(width/3, height, -HALF_PI, height/5);
+  branch(width* 2/3, height, -HALF_PI, height/5);
 }
 
 function branch(x, y, ang, mag){
@@ -39,7 +39,7 @@ function branch(x, y, ang, mag){
   if(mag > 10){
     let numBranches = round(random(2, 5));
     for(let i = 0; i < numBranches; i++){
-      branch(nx, ny, ang + random(-spread, spread), mag * random(0.4, 0.7));
+      branch(nx, ny, ang + random(-spread, spread), mag * random(0.3, 0.9));
     }
   }
   pop();

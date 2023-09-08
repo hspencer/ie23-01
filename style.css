@@ -13,6 +13,11 @@ html, body {
   padding: 0;
 }
 
+a{
+  color: rgb(0, 115, 255);
+  font-weight: bolder;
+}
+
 code{
   display: inline-block;
   word-break: keep-all;
@@ -50,6 +55,7 @@ h1{
 }
 
 /* Establece el tamaño de fuente para los elementos <p> dentro del elemento con id="left" */
+#left li,
 #left p{
   font-size: 1.44vw; /* Establece el tamaño de fuente en 1.5em */
   text-align: justify;
@@ -68,6 +74,7 @@ h1{
     grid-template-columns: 1fr; /* sólo una columna */
   }
 
+  
   #left p{
     font-size: 1em; 
     line-height: 1.4em;
