@@ -13,6 +13,11 @@ html, body {
   padding: 0;
 }
 
+#left,
+#right{
+  height: 100vh;
+}
+
 a{
   color: rgb(0, 0, 0);
   font-weight: bolder;
@@ -45,8 +50,6 @@ main{
   background: linear-gradient(180deg, rgba(215,215,215,1) 0%, rgba(128,128,128,1) 100%);
 }
 
-
-
 .content{
   margin:0 0 2em 0;
 }
@@ -75,7 +78,6 @@ h1{
     grid-template-columns: 1fr; /* sólo una columna */
   }
 
-  
   #left p{
     font-size: 1em; 
     line-height: 1.4em;

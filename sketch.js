@@ -3,16 +3,28 @@ let slider;
 let m = 10;
 
 function setup() {
-  let cnv = createCanvas(document.getElementById("right").offsetWidth, windowHeight);
+  let canvasWidth = document.getElementById("right").offsetWidth;
+  let canvasHeight = windowHeight;
+  
+  // Si la ventana es más alta que ancha, hacer que el lienzo sea cuadrado
+  if (windowHeight > canvasWidth) {
+    canvasHeight = canvasWidth;
+  }
+  
+  let cnv = createCanvas(canvasWidth, canvasHeight);
   cnv.parent("right");
+  
   video = createCapture(VIDEO);
   video.size(width, height);
   video.hide();
+  
   slider = createSlider(2, 150, m); // Deslizador para controlar la distancia entre círculos
   slider.parent("left");
+  
   fill(0);
   noStroke();
 }
+
 
 function draw() {
   clear(); // Limpia el lienzo en cada fotograma
