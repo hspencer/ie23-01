@@ -14,9 +14,9 @@ html, body {
 }
 
 a{
-  color: rgb(255, 111, 0);
+  color: rgb(0, 0, 0);
   font-weight: bolder;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.695);
+  text-shadow: 1px 1px 2px rgba(246, 246, 246, 0.695);
 }
 
 code{

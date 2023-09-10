@@ -31,7 +31,7 @@ function draw() {
       let idx = (vidY * video.width + vidX) * 4;
 
       let brightness = (video.pixels[idx] + video.pixels[idx + 1] + video.pixels[idx + 2]) / 3;
-      let circleSize = map(brightness, 0, 255, m * 2, 0); // Invierte el mapeo
+      let circleSize = map(brightness, 0, 255, m * 3, 0); // Invierte el mapeo
       ellipse(x + xOffset, y, circleSize);
     }
   }
