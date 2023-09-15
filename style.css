@@ -50,9 +50,23 @@ main{
   background: linear-gradient(180deg, rgba(215,215,215,1) 0%, rgba(128,128,128,1) 100%);
 }
 
-.content{
-  margin:0 0 2em 0;
+.content nav{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
 }
+
+.content nav a img{
+  width: 100%;
+  border-radius: 1ex;
+}
+
+.content nav a:hover img{
+  width: 100%;
+  border-radius: 1ex;
+  border: 3px solid black
+}
+
 /* Establece el tamaño de fuente para los elementos <h1> */
 h1{
   font-size: 3em; /* Establece el tamaño de fuente en 3em */
@@ -67,6 +81,9 @@ h1{
   line-height: 1.32em;
 }
 
+#slider{
+  margin-top: 2em;
+}
 /* Establece propiedades para el elemento con id="right" */
 #right{
   /* Define un degradado lineal horizontal para el fondo, desde un gris claro en la izquierda hasta un gris más oscuro en la derecha */

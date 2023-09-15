@@ -7,7 +7,7 @@ function setup() {
   let canvasHeight = windowHeight;
   
   // Si la ventana es más alta que ancha, hacer que el lienzo sea cuadrado
-  if (windowHeight > canvasWidth) {
+  if (windowHeight > windowWidth) {
     canvasHeight = canvasWidth;
   }
   
@@ -19,7 +19,7 @@ function setup() {
   video.hide();
   
   slider = createSlider(2, 150, m); // Deslizador para controlar la distancia entre círculos
-  slider.parent("left");
+  slider.parent("slider");
   
   fill(0);
   noStroke();
