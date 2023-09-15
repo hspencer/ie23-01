@@ -4,16 +4,15 @@ Objetos
 
 */
 
-
 let boids, num;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
-  num = 0;
+  num = 10;
   boids = [];
 
   for(let i = 0; i < num; i++){
-    let nuevoBoid = new Boid(random(width), random(height));
+    let nuevoBoid = new Boid(width/2, height/2);
     boids.push(nuevoBoid);
   }
 }
@@ -41,6 +40,7 @@ class Boid{
     this.maxAge = round(random(900, 1000));
     this.angle = random(TWO_PI);
     this.seed = round(random(999999));
+    this.t = this.diam; // tamaño 
   }
 
 
@@ -53,7 +53,7 @@ class Boid{
     if(random(1) < 0.001){
       let nuevoBoid = new Boid(this.x, this.y);
       nuevoBoid.angle = this.angle;
-      nuevoBoid.diam = this.diam;
+      nuevoBoid.diam = this.t;
       boids.push(nuevoBoid);
     }
 
@@ -71,24 +71,30 @@ class Boid{
   }
 
   render(){
-    let c = this.age / this.maxAge;
-    fill((1-c) * 255);
-    stroke(0, 50);
+    let c = this.age / this.maxAge; // coeficiente de vida
+    this.t = (1-c) * this.diam; // coeficiente de tamaño
+    fill(c * 255);
+    stroke(0);
     push();
     translate(this.x, this.y);
     rotate(this.angle);
+    
+    // rombo direccionado
     beginShape();
-    vertex(this.diam, 0);
-    vertex(0, -this.diam/2);
-    vertex(-this.diam/2, 0);
-    vertex(0, this.diam/2);
+    vertex(this.t, 0);
+    vertex(0, -this.t/2);
+    vertex(-this.t/2, 0);
+    vertex(0, this.t/2);
     endShape(CLOSE);
    
 
     // texto
+    /*
     fill(255);
     textSize(16);
     text(this.age+"/"+this.maxAge, 0, textAscent()/2);
+    */
+
     pop();
   }
 }

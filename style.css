@@ -52,19 +52,26 @@ main{
 
 .content nav{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2em;
+}
+
+.content nav a{
+  text-decoration: none;
 }
 
 .content nav a img{
   width: 100%;
   border-radius: 1ex;
+  margin-bottom: 1ex;
+  border: 3px solid transparent;
 }
 
 .content nav a:hover img{
   width: 100%;
   border-radius: 1ex;
-  border: 3px solid black
+  border: 3px solid black;
+  box-shadow: 0 -10px 0 black;
 }
 
 /* Establece el tamaño de fuente para los elementos <h1> */
