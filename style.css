@@ -102,6 +102,10 @@ h1{
     grid-template-columns: 1fr; /* sólo una columna */
   }
 
+  #left{
+    height: auto;
+  }
+
   #left p{
     font-size: 1em; 
     line-height: 1.4em;
